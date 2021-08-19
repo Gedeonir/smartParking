@@ -60,11 +60,11 @@
 
                         <li>
                             <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
+                                <i class="fas fa-chart-bar"></i>fff</a>
                         </li>
                         <li>
                             <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
+                                <i class="fas fa-table"></i>ffff</a>
                         </li>
                         <li>
                             <a href="form.html">

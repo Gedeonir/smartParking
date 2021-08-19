@@ -44,6 +44,7 @@
                                         <th>Slot size</th>
                                         <th>Slot level</th>
                                         <th>Price</th>
+                                        <th>Availability</th>
                                         <th></th>
                                       </tr>
                                     </thead>
@@ -69,6 +70,13 @@
                                                 echo "200";
                                             }
                                             ?>frw/ per hour
+                                        </td>
+                                        <td><?php
+                                            if($row->availability=='1') {
+                                                echo "Available"; 
+                                            } else {
+                                                echo "Booked";
+                                            }?>
                                         </td>
                                         <td>
                                             <div class="table-data-feature">
