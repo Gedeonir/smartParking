@@ -25,8 +25,12 @@
                                 <div class="overview-wrap">
                                     <h2 class="title-1">view info</h2>
                                     
-                                    <a href="<?php echo base_url('index.php/clients') ?>" class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>view clients
+                                    <a href="<?php echo base_url('slots') ?>" class="au-btn au-btn-icon au-btn--green">
+                                        <i class="fa fa-eye"></i>view slots
+                                    </a>
+
+                                    <a href="#" class="au-btn au-btn-icon au-btn--blue" data-toggle="modal" data-target="#newslot">
+                                        <i class="zmdi zmdi-plus"></i>Register Slot
                                     </a>
                                 </div>
                             </div>
@@ -41,9 +45,7 @@
                                       <tr>
                                         <th>No.</th>
                                         <th>Slot code</th>
-                                        <th>Slot size</th>
                                         <th>Slot level</th>
-                                        <th>Price</th>
                                         <th>Availability</th>
                                         <th></th>
                                       </tr>
@@ -56,26 +58,12 @@
                                       <tr>
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $row->space_code; ?></td>
-                                        <td><?php echo $row->space_size; ?></td>
                                         <td><?php echo $row->space_level; ?></td>
-                                        <td>
-                                            <?php
-                                            if($row->space_size=='Large') {
-                                                echo "300"; 
-                                            } else if($row->space_size=='Large') {
-                                                echo "800";
-                                            } else if($row->space_size=='Medium') {
-                                                echo "250";
-                                            } else if($row->space_size=='Small') {
-                                                echo "200";
-                                            }
-                                            ?>frw/ per hour
-                                        </td>
                                         <td><?php
                                             if($row->availability=='1') {
-                                                echo "Available"; 
+                                                echo '<p class="text-primary">Available</p>'; 
                                             } else {
-                                                echo "Booked";
+                                                echo '<mark class="text-danger">Booked</mark>';
                                             }?>
                                         </td>
                                         <td>

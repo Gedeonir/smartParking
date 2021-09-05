@@ -1,14 +1,10 @@
 <?php
-
-
-if($user = $this->session->userdata('logged_in')) {
-    extract($user);
-    echo $firstname." ".$lastname;
+if($userc = $this->session->userdata('clogged_in')) {
+    extract($userc);
 } else {
-    redirect(base_url("login"));
+    redirect(base_url("client/login"));
 }
 ?>
-
 
 <body class="animsition">
     <div class="page-wrapper">
@@ -33,33 +29,33 @@ if($user = $this->session->userdata('logged_in')) {
                     <ul class="navbar-mobile__list list-unstyled">
 
                         <li>
-                            <a href="<?php echo base_url();?>admin">
-                                <i class="fas fa-home"></i>Dashboard</a>
+                            <a href="<?php echo base_url();?>client">
+                                <i class="fas fa-home"></i>Home</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>admin/manage">
-                                <i class="fas fa-users"></i>Manage Admins</a>
+                            <a href="<?php echo base_url();?>client/profile">
+                                <i class="fas fa-user"></i>Add vehicle</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>slots">
-                                <i class="fas fa-table"></i>Manage Slots</a>
+                            <a href="<?php echo base_url();?>client/assign/<?php echo $client_id; ?>">
+                                <i class="fas fa-plus-square"></i>Add vehicle</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>clients">
-                                <i class="fas fa-user"></i>Manage Clients</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url();?>parking">
+                            <a href="<?php echo base_url();?>client/parking">
                                 <i class="fas fa-map-marker"></i>Book Parking</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>parking/requests">
-                                <i class="fas fa-location-arrow"></i>Parking Requests</a>
+                            <a href="<?php echo base_url();?>client/history">
+                                <i class="fas fa-outdent"></i>Parking History</a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url();?>client/account">
+                                <i class="fas fa-user"></i>Account</a>
                         </li>
 
                     </ul>
@@ -80,33 +76,28 @@ if($user = $this->session->userdata('logged_in')) {
                     <ul class="list-unstyled navbar__list">
 
                         <li>
-                            <a href="<?php echo base_url();?>admin">
-                                <i class="fas fa-home"></i>Dashboard</a>
+                            <a href="<?php echo base_url();?>client">
+                                <i class="fas fa-home"></i>Home</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>admin/manage">
-                                <i class="fas fa-users"></i>Manage Admins</a>
+                            <a href="<?php echo base_url();?>client/assign/<?php echo $client_id; ?>">
+                                <i class="fas fa-plus-square"></i>Add vehicle</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>slots">
-                                <i class="fas fa-table"></i>Manage Slots</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url();?>clients">
-                                <i class="fas fa-user"></i>Manage Clients</a>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url();?>parking">
+                            <a href="<?php echo base_url(); ?>client/parking">
                                 <i class="fas fa-map-marker"></i>Book Parking</a>
                         </li>
 
                         <li>
-                            <a href="<?php echo base_url();?>parking/requests">
-                                <i class="fas fa-location-arrow"></i>Parking Requests</a>
+                            <a href="<?php echo base_url();?>client/history">
+                                <i class="fas fa-outdent"></i>Parking History</a>
+                        </li>
+
+                        <li>
+                            <a href="<?php echo base_url();?>client/account">
+                                <i class="fas fa-user"></i>Account</a>
                         </li>
                     
                     </ul>
@@ -123,19 +114,29 @@ if($user = $this->session->userdata('logged_in')) {
                     <div class="container-fluid">
                         <div class="header-wrap">
                             <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for data..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
+                                
                             </form>
                             <div class="header-button">
                                 <div class="noti-wrap">
-                                    <!-- {{ Notification }} -->
+                                
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-file-text"></i>
+                                        <span class="quantity"><?php echo $historyCount; ?></span>
+                                        <div class="notifi-dropdown js-dropdown">
+                                            <div class="notifi__title">
+                                                <p class="text-md-center">You parked <?php echo $historyCount; ?> times</p>
+                                            </div>
+                                    
+                                            <div class="notifi__footer">
+                                                <a href="<?php echo base_url('client/history');?>">View parking history</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="account-wrap">
                                     <?php
-                                    if($user = $this->session->userdata('logged_in')) {
-                                        extract($user);
+                                    if($userc = $this->session->userdata('clogged_in')) {
+                                        extract($userc);
                                     ?>
 
                                     <div class="account-item clearfix js-item-menu">
@@ -153,7 +154,7 @@ if($user = $this->session->userdata('logged_in')) {
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="<?php echo base_url('assets/images/icon/user.png');?>" alt="John Doe" />
+                                                        <img src="<?php echo base_url('assets/images/icon/user.png');?>" alt="User" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -173,24 +174,20 @@ if($user = $this->session->userdata('logged_in')) {
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo base_url('main/account');?>">
+                                                    <a href="<?php echo base_url('client/account');?>">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="<?php echo base_url('admin/manage');?>">
-                                                        <i class="zmdi zmdi-plus"></i>Manage Admins</a>
+                                                    <a href="<?php echo base_url('client/logout');?>">
+                                                        <i class="zmdi zmdi-power"></i>Logout</a>
                                                 </div>
-                                                
                                             </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="<?php echo base_url('main/logout');?>">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
+                                           
                                         </div>
                                     </div>
                                     <?php
                                     } else {
-                                        redirect(base_url("main/login"));
+                                        redirect(base_url("client/login"));
                                     } ?>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://localhost/codeigniter/CIG/digitalparking/';
+$config['base_url'] = 'http://localhost/Codeigniter/CIG/digitalparking/';
 
 /*$root  = "http://".$_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);

@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title><?php echo "| "; ?>Smart Parking IoT-Based App</title>
+    <title>Digital Parking IoT-Based App</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url('assets/css/font-face.css') ?>" rel="stylesheet" media="all">

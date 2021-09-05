@@ -23,6 +23,25 @@ class SlotController extends CI_Controller {
 		$this->load->view('templates/footer');
 		$this->load->view('templates/downow');
 
+				// Registration action
+		if($this->input->post('saveslot')) {
+			$code = "PK-".rand(10000, 99999);
+			// $size = $this->input->post('space_size');
+			$level= $this->input->post('space_level');
+
+			$sql = "SELECT * FROM parking_spaces WHERE space_code='$code' ";
+			$check= $this->db->query($sql);
+
+			if($check->num_rows()) {
+				$code = "PK-".rand(10000, 99999);
+			} else {
+				$sql = "INSERT INTO `parking_spaces`(`space_code`, `space_size`, `space_level`) VALUES ('$code', 'Medium', '$level')";
+				$this->db->query($sql);
+				$this->session->set_flashdata('message', "New parking slot is created!");
+				redirect(base_url("slots"));
+			}			
+		}
+
 	}
 
 
@@ -52,7 +71,7 @@ class SlotController extends CI_Controller {
 				$data['message']="There is a problem!</h3>";
 				redirect(base_url("index.php/slots"));
 			} else {
-				$query= "UPDATE parking_spaces SET space_code='$code', space_size='$size', space_level='$level' WHERE space_id='$slot_id' ";
+				$query= "UPDATE parking_spaces SET space_code='$code', space_size='Medium', space_level='$level' WHERE space_id='$slot_id' ";
 				$this->db->query($query);
 				$this->session->set_flashdata('message', "Parking slot is updated!");
 				redirect(base_url("index.php/slots"));		

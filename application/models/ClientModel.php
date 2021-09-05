@@ -11,8 +11,23 @@ class ClientModel extends CI_Model{
 		}
     }
 
+    public function fetchAllClients(){
+		$query=$this->db->query("SELECT * FROM clients");
+		return $query->result();
+	}
+
     public function fetchClients(){
 		$query=$this->db->query("SELECT * FROM client WHERE status='1' ");
+		return $query->result();
+	}
+
+	public function fetchOneClient($id){
+		$query=$this->db->query("SELECT * FROM client WHERE client_id='$id' ");
+		return $query->result();
+	}
+
+	public function fetchClientsFromLast(){
+		$query=$this->db->query("SELECT * FROM client ORDER BY client_id DESC ");
 		return $query->result();
 	}
 

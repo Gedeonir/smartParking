@@ -44,8 +44,8 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>343</h2>
-                                                <span>members today</span>
+                                                <h2><?php echo $avSlotCount; ?></h2>
+                                                <span>Available spaces</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -60,11 +60,11 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                                <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>12,688</h2>
-                                                <span>Car parkings (this week)</span>
+                                                <h2><?php echo $bkSlotCount; ?></h2>
+                                                <span>Booked slots (now)</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -82,8 +82,8 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>453</h2>
-                                                <span>members today</span>
+                                                <h2><?php echo $reqCount; ?></h2>
+                                                <span>Parking requests</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -98,11 +98,11 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
+                                                <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>total earnings</span>
+                                                <h2><?php echo $clientCount; ?></h2>
+                                                <span>Received clients</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -112,34 +112,6 @@
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="au-card chart-percent-card">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 tm-b-5">Statistics Percentages %</h3>
-                                        <div class="row no-gutters">
-                                            <div class="col-xl-6">
-                                                <div class="chart-note-wrap">
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--blue"></span>
-                                                        <span>products</span>
-                                                    </div>
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--red"></span>
-                                                        <span>services</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="percent-chart">
-                                                    <canvas id="percent-chart"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
 

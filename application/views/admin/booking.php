@@ -9,7 +9,7 @@
                     <div class="alert au-alert-success alert-dismissible fade show au-alert au-alert--70per" role="alert">
                         <i class="zmdi zmdi-check-circle"></i>
                         <span class="content">
-                            <?php echo $this->session->flashdata('message'); ?>
+                            <?php echo @$this->session->flashdata('message'); ?>
                         </span>
                         <button class="close" type="button" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">
@@ -18,38 +18,31 @@
                         </button>
                     </div><br>
                     <?php } ?>
-                    <!-- END ALERT-->
+                    <!-- END ALERT--> 
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">view info</h2>
+                                    <h3 class="title-1">Parkings</h3>
                                     
-                                    <a href="<?php echo base_url('clients/inactive') ?>" class="au-btn au-btn-icon au-btn--blue2">
-                                        <i class="fa fa-eye"></i>Disabled clients
-                                    </a>
-
-                                    <a href="#" class="au-btn au-btn-icon au-btn--blue" data-toggle="modal" data-target="#addClient">
-                                        <i class="zmdi zmdi-plus"></i>Register Client
+                                    <a href="<?php echo base_url('index.php/clients') ?>" class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>Available Clients
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div>                       
 
                         <div class="row m-t-15">
                             <div class="top-campaign col-md-12">
-                                <h3 class="title-3 m-b-30">All clients</h3>
+                                <h3 class="title-3 m-b-30">Start booking parking</h3>
                                 <div class="table-responsive">
-                                <table class="table table-top-campaign">
+                                  <table class="table table-top-campaign">
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Fistname</th>
                                             <th>Lastname</th>
-                                            <th>Tel.No</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>Date</th>
+                                            <th>Vehicle Plate</th>
                                             <th colspan="2" class="text-center">Action</th>
                                         </tr>
                                     </thead>
@@ -57,39 +50,29 @@
                                     <tbody>
                                     <?php
                                     $i=1;
-                                    if(!empty($clientData)) {
-                                        foreach($clientData as $row) { ?>
+                                    if(!empty($bookingData)) {
+                                        foreach($bookingData as $row) { ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
                                             <td><?php echo $row->firstname; ?></td>
                                             <td><?php echo $row->lastname; ?></td>
-                                            <td><?php echo $row->phone_no; ?></td>
-                                            <td data-toggle="tooltip" data-placement="top" title="<?php echo $row->email; ?>">
-                                                <?php 
-                                                if(strlen($row->email)>15){
-                                                    echo substr($row->email, 0, 10)."...";
-                                                }?>
+                                            <td><?php echo $row->username; ?></td>
+                                            <td>
+                                                <a href="<?php echo base_url('parking/arrange/'.$row->client_id); ?>" class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-bookmark"></i> Book now!
+                                                </a>
                                             </td>
-                                            <td><?php echo $row->address; ?></td>
-                                            <td><?php echo date('d, M, Y', strtotime($row->date_created)); ?></td>
+
                                             <td>
                                                 <div class="table-data-feature">
-                                                    <div class="table-data-feature" data-toggle="tooltip"data-placement="top" title="Add vehicle">
+                                                    <div class="table-data-feature">
                                                         <a href="<?php echo base_url('client/assign/'.$row->client_id); ?>" class="btn btn-success btn-sm">
-                                                            <i class="fa fa-tag"></i>
+                                                            <i class="fa fa-plus"></i> Manage
                                                         </a>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    <div class="table-data-feature" data-toggle="tooltip"data-placement="top" title="Disable">
-                                                        <a href="<?php echo base_url('client/disable/'.$row->client_id); ?>" class="btn btn-danger btn-sm">
-                                                            <i class="fa fa-eye-slash"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
+
                                             <?php
                                             $i++;
                                         } 

@@ -69,7 +69,7 @@
                                 <div class="form-actions form-group">
                                     <input type="submit" class="btn btn-primary btn-md" name="saveclient" value="Save">
                                     <button type="reset" class="btn btn-danger btn-md">
-                                        <i class="fa fa-ban"></i> Reset
+                                        <i class="fa fa-ban"></i> Cancel
                                     </button>
                                 </div>
 
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label for="space_size" class="control-label mb-1">Space size</label>
                                     <select id="space_size" name="space_size" class="form-control form-control">
                                         <option value="">Please select</option>
@@ -126,11 +126,11 @@
                                         <option value="Medium">Medium</option>
                                         <option value="Small">Small</option>
                                     </select>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group">
                                     <label for="space_level" class="control-label mb-1">Space level</label>
-                                    <select id="space_level" name="space_level" class="form-control form-control">
+                                    <select id="space_level" name="space_level" class="form-control form-control" required>
                                         <option value="">Please select</option>
                                         <option value="Normal">Normal</option>
                                         <option value="VIP">VIP</option>
@@ -141,7 +141,7 @@
                                     <input type="submit" class="btn btn-primary btn-md" name="saveslot" value="Save">
                                 
                                     <button type="reset" class="btn btn-danger btn-md">
-                                        <i class="fa fa-ban"></i> Reset
+                                        <i class="fa fa-ban"></i> Cancel
                                     </button>
                                 </div>
 
