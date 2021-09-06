@@ -90,7 +90,7 @@
                                                                     echo "<b>".$rounded."</b> hours"; 
                                                                     ?>
                                                                     </td>
-                                                                <td><?php $amount = ($rounded * 100); echo "<b>".$amount."</b> rwfs"; ?></td>
+                                                                <td><?php $amount = ($rounded * 200); if(($amount)<200) { echo "<b>200rwfs</b>"; } else { echo "<b>".$amount."</b> rwfs"; } ?></td>
 
                                                                 <td class="text-right"><a class="btn btn-success" href="#" onclick="return alert('Nabirangije, Hasigaye IOT mwana, Reka mbe nkora rap!');">Finish</a></td>
                                                                 <td><a class="btn btn-danger" href="<?php echo base_url("parking/requests"); ?>">Return</a></td>
